@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/trangchu"
+            android:title="Trang chủ"
+            android:icon="@drawable/home"/>
+
+        <item
+            android:id="@+id/thongke"
+            android:title="Xem Thống kê"
+            android:icon="@drawable/chart"/>
+        <item
+            android:id="@+id/profile"
+            android:title="Profile"
+            android:icon="@drawable/person"/>
+        <item android:id="@+id/doimatkhau"
+            android:title="Đổi Mật Khẩu"
+            android:icon="@drawable/key"
+            />
+        <item
+            android:id="@+id/thongtinungdung"
+            android:icon="@drawable/outline"
+            android:title="Thông tin ứng dụng"/>
+        <item
+            android:id="@+id/logout"
+            android:title="Đăng xuất"
+            android:icon="@drawable/ogout"/>
+    </group>
+</menu>
