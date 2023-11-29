@@ -7,7 +7,7 @@
     android:padding="30dp"
     android:transitionName="transition_signup"
     android:id="@+id/layoutRegister"
-    tools:context=".Register"
+    tools:context=".Activity.Register"
     >
 
     <LinearLayout

@@ -1,10 +1,12 @@
-package com.example.appdatdouong_refreshrush;
+package com.example.appdatdouong_refreshrush.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.appdatdouong_refreshrush.R;
 
 public class MainActivity extends AppCompatActivity {
 

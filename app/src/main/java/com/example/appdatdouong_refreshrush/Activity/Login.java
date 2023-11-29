@@ -1,4 +1,4 @@
-package com.example.appdatdouong_refreshrush;
+package com.example.appdatdouong_refreshrush.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,10 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.appdatdouong_refreshrush.Dao.NguoiDungDAO;
+import com.example.appdatdouong_refreshrush.Menu_navigation;
+import com.example.appdatdouong_refreshrush.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class Login extends AppCompatActivity {

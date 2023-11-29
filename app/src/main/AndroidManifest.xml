@@ -12,16 +12,37 @@
         android:theme="@style/Theme.AppDatDoUong_RefreshRush"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.DanhMucNuocGiaiKhat"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DanhMucTraSua"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DanhMucCoffe"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DanhMucBia"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DanhMuc"
+            android:exported="false" />
+        <activity
+            android:name=".test"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DanhMucBia"
+            android:exported="false" />
+        <activity
             android:name=".Menu_navigation"
             android:exported="false" />
         <activity
-            android:name=".Register"
+            android:name=".Activity.Register"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".Activity.Login"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

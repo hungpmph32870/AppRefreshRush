@@ -96,13 +96,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-15dp"
                 android:orientation="horizontal">
-
+                <ImageButton
+                    android:id="@+id/home_btn_danhmuc"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/khung_danhmuc"
+                    android:src="@drawable/list"/>
 
                 <ImageButton
                     android:id="@+id/home_btn_deal"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_marginStart="45dp"
+                    android:layout_marginStart="25dp"
                     android:background="@drawable/khung_deal"
                     android:src="@drawable/baseline_whatshot_24"/>
 
@@ -132,11 +137,19 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="45dp"
                 android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="Danh Mục"
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
+                    android:layout_marginStart="35dp"
                     android:layout_marginTop="1dp"
                     android:background="?android:attr/selectableItemBackground"
                     android:text="Deal"
@@ -145,7 +158,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
+                    android:layout_marginStart="35dp"
                     android:layout_marginTop="1dp"
                     android:background="?android:attr/selectableItemBackground"
                     android:text="Giảm 75%"
