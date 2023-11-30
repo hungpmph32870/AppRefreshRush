@@ -15,7 +15,7 @@ public class DanhMucNuocGiaiKhat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_danh_muc_nuoc_giai_khat);
-        btnback = findViewById(R.id.back_nuocgiaikhat);
+        btnback = findViewById(R.id.btn_back_nuocgiaikhat);
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

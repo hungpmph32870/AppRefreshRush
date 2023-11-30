@@ -15,7 +15,7 @@ public class DanhMucTraSua extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_danh_muc_tra_sua);
-        btnback = findViewById(R.id.back_trasua);
+        btnback = findViewById(R.id.btn_back_trasua);
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

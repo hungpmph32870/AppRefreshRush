@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragment.GioHang">
+    <ListView
+        android:layout_width="match_parent"
+        android:id="@+id/lv_giohang"
+        android:layout_height="600dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="600dp"
+            android:text="Thành Tiền: "
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#FF0000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="600dp"
+            android:textSize="20dp"
+            android:text="123.000vnd"
+            android:id="@+id/txt_giohang_thanhtien"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="650dp"
+        android:text="Đặt Hàng"
+        android:layout_marginLeft="300dp"
+        android:background="#2196F3"
+        android:id="@+id/btn_giohang_dathang"/>
+
+
+
+
+
+</FrameLayout>
