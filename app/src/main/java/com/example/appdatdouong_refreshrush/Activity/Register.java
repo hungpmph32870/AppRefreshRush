@@ -19,7 +19,7 @@ public class Register extends AppCompatActivity {
     NguoiDungDAO ndDAO;
     ArrayList<NguoiDung> list;
     Button BTN_signup_next;
-    TextInputLayout TXTL_signup_HoVaTen, TXTL_signup_TenDN, TXTL_signup_Email, TXTL_signup_SDT, TXTL_signup_MatKhau;
+    TextInputLayout TXTL_signup_HoVaTen, TXTL_signup_TenDN, TXTL_signup_Email, TXTL_signup_SDT, TXTL_signup_MatKhau, TXTL_signup_idNguoiDung;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,22 +32,39 @@ public class Register extends AppCompatActivity {
         TXTL_signup_Email = findViewById(R.id.txtl_signup_Email);
         TXTL_signup_SDT = findViewById(R.id.txtl_signup_SDT);
         TXTL_signup_MatKhau = findViewById(R.id.txtl_signup_MatKhau);
+        TXTL_signup_idNguoiDung = findViewById(R.id.txtl_signup_idNguoiDung);
         ndDAO= new NguoiDungDAO(this);
         BTN_signup_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String user = TXTL_signup_TenDN.getEditText().getText().toString();
-                String pass = TXTL_signup_MatKhau.getEditText().getText().toString();
-                NguoiDung nd = new NguoiDung(user, pass);
-                if (ndDAO.insert(nd) >0){
-                    Toast.makeText(Register.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Register.this, Login.class);
-                    startActivity(intent);
-                }
-                else {
-                    Toast.makeText(Register.this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
-                }
+                register();
             }
         });
+    }
+    private void register(){
+        String id = TXTL_signup_idNguoiDung.getEditText().getText().toString().trim();
+        String hoTen = TXTL_signup_HoVaTen.getEditText().getText().toString().trim();
+        String tenDN = TXTL_signup_TenDN.getEditText().getText().toString().trim();
+        String email = TXTL_signup_Email.getEditText().getText().toString().trim();
+        String sdt = TXTL_signup_SDT.getEditText().getText().toString().trim();
+        String matKhau = TXTL_signup_MatKhau.getEditText().getText().toString().trim();
+        if (id.isEmpty() || hoTen.isEmpty() || tenDN.isEmpty() || email.isEmpty() || sdt.isEmpty() || matKhau.isEmpty()){
+            Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            return;
+        }if (ndDAO.isMaNvExists(id)){
+            Toast.makeText(this, "ID này đã tồn tại", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        NguoiDung newNguoiDung = new NguoiDung(id, hoTen, tenDN, email, sdt, matKhau);
+
+        long result = ndDAO.insert(newNguoiDung);
+        if (result > 0){
+            Toast.makeText(this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Register.this, Login.class);
+            startActivity(intent);
+            finish();
+        }else {
+            Toast.makeText(this, "Đăng ký không thành công", Toast.LENGTH_SHORT).show();
+        }
     }
 }

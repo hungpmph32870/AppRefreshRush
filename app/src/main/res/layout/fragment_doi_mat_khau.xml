@@ -23,10 +23,10 @@
             android:textSize="30dp"/>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_marginTop="10dp"
-
+            android:hint="Mật khẩu cũ:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:id="@+id/txtl_DMK_PassOld"
             app:startIconDrawable="@drawable/key"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:passwordToggleEnabled="true"
@@ -37,16 +37,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textPassword"
-                android:id="@+id/txtl_DMK_PassOld"
-                android:hint="Mật khẩu cũ:"
+
+
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_marginTop="10dp"
-
+            android:hint="Mật khẩu mới:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:id="@+id/txtl_DMK_PassChange"
             app:startIconDrawable="@drawable/key"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:passwordToggleEnabled="true"
@@ -56,8 +56,8 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/txtl_DMK_PassChange"
-                android:hint="Mật khẩu mới:"
+
+
                 android:inputType="textPassword"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -66,18 +66,19 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:id="@+id/txtl_DMK_RePassChange"
             app:startIconDrawable="@drawable/key"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:passwordToggleEnabled="true"
             app:boxStrokeWidthFocused="2dp"
+            android:hint="Nhập lại mật khẩu:"
             >
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/txtl_DMK_RePassChange"
-                android:hint="Nhập lại mật khẩu:"
+
+
                 android:inputType="textPassword"
                 />
         </com.google.android.material.textfield.TextInputLayout>

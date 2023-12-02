@@ -30,6 +30,22 @@
             android:layout_marginTop="40dp"
             >
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtl_signup_idNguoiDung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="ID:"
+                app:startIconDrawable="@drawable/person"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="clear_text"
+                app:boxStrokeWidthFocused="2dp"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtl_signup_HoVaTen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

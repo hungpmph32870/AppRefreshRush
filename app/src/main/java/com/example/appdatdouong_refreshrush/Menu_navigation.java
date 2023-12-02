@@ -2,19 +2,23 @@ package com.example.appdatdouong_refreshrush;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.appdatdouong_refreshrush.Activity.DanhMuc;
+import com.example.appdatdouong_refreshrush.Activity.Login;
 import com.example.appdatdouong_refreshrush.Fragment.DoiMatKhau;
 import com.example.appdatdouong_refreshrush.Fragment.GioHang;
 import com.example.appdatdouong_refreshrush.Fragment.QuanLyDonHang;
@@ -69,6 +73,28 @@ public class Menu_navigation extends AppCompatActivity {
                 } else if (item.getItemId()==R.id.quanlydonhang) {
                     QuanLyDonHang qldh = new QuanLyDonHang();
                     replaceFrg(qldh);
+                } else if (item.getItemId()==R.id.logout) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Menu_navigation.this);
+                    builder.setTitle("Đăng Xuất");
+                    builder.setMessage("Bạn có muốn đăng xuất không ?");
+                    builder.setCancelable(true);
+                    builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(Menu_navigation.this, Login.class);
+                            Toast.makeText(Menu_navigation.this, "Đã đăng xuất", Toast.LENGTH_SHORT).show();
+                            startActivity(intent);
+                        }
+                    });
+                    builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                            Toast.makeText(Menu_navigation.this, "Không đăng xuất", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
                 return true;
             }

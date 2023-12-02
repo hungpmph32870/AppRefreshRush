@@ -7,10 +7,12 @@
     android:id="@+id/drawerlayout"
     tools:openDrawer="start"
     tools:context=".Menu_navigation">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,6 +28,7 @@
             android:id="@+id/frmNav"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+
     </LinearLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav"

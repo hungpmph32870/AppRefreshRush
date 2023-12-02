@@ -9,17 +9,18 @@ import androidx.annotation.Nullable;
 public class DbHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "QLSP";
 
-    public DbHelper(Context context){super(context, DB_NAME, null, 3);}
+    public DbHelper(Context context){super(context, DB_NAME, null, 4);}
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE NGUOIDUNG\n" +
                 "(\n" +
-                "\tHOTEN TEXT primary key,\n" +
-                "\tTENTAIKHOAN TEXT,\n" +
-                "\tEMAIL TEXT,\n" +
-                "\tSODIENTHOAI TEXT,\n" +
-                "\tMATKHAU TEXT \n " +
+                "\t IDNGUOIDUNG TEXT PRIMARY KEY, \n" +
+                "\t HOTEN TEXT NOT NULL ,\n" +
+                "\t TENTAIKHOAN TEXT NOT NULL,\n" +
+                "\t EMAIL TEXT NOT NULL,\n" +
+                "\t SODIENTHOAI TEXT NOT NULL,\n" +
+                "\t MATKHAU TEXT NOT NULL\n " +
                 "\t)\n"+
                 "\t");
     }
