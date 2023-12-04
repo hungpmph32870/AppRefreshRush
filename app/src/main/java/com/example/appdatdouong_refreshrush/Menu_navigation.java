@@ -17,19 +17,17 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.appdatdouong_refreshrush.Activity.DanhMuc;
 import com.example.appdatdouong_refreshrush.Activity.Login;
 import com.example.appdatdouong_refreshrush.Fragment.DoiMatKhau;
 import com.example.appdatdouong_refreshrush.Fragment.GioHang;
+import com.example.appdatdouong_refreshrush.Fragment.QLDoUong;
 import com.example.appdatdouong_refreshrush.Fragment.QuanLyDonHang;
 import com.example.appdatdouong_refreshrush.Fragment.ThongTinNguoiDung;
-import com.example.appdatdouong_refreshrush.Fragment.ThongTinUngDung;
 import com.example.appdatdouong_refreshrush.Fragment.TrangChu;
 import com.example.appdatdouong_refreshrush.Fragment.ThongKe;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-public class Menu_navigation extends AppCompatActivity {
+public class Menu_navigation extends AppCompatActivity{
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     NavigationView nav;
@@ -61,9 +59,6 @@ public class Menu_navigation extends AppCompatActivity {
                 } else if (item.getItemId()==R.id.doimatkhau) {
                     DoiMatKhau dmk = new DoiMatKhau();
                     replaceFrg(dmk);
-                } else if (item.getItemId()==R.id.thongtinungdung) {
-                    ThongTinUngDung ttud = new ThongTinUngDung();
-                    replaceFrg(ttud);
                 } else if (item.getItemId()==R.id.profile) {
                     ThongTinNguoiDung ttnd = new ThongTinNguoiDung();
                     replaceFrg(ttnd);
@@ -73,6 +68,9 @@ public class Menu_navigation extends AppCompatActivity {
                 } else if (item.getItemId()==R.id.quanlydonhang) {
                     QuanLyDonHang qldh = new QuanLyDonHang();
                     replaceFrg(qldh);
+                } else if (item.getItemId()==R.id.douong) {
+                    QLDoUong qldu = new QLDoUong();
+                    replaceFrg(qldu);
                 } else if (item.getItemId()==R.id.logout) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Menu_navigation.this);
                     builder.setTitle("Đăng Xuất");

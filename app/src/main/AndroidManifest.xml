@@ -18,27 +18,6 @@
             android:name=".Activity.Deal"
             android:exported="false" />
         <activity
-            android:name=".Activity.DanhMucNuocGiaiKhat"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.DanhMucTraSua"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.DanhMucCoffe"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.DanhMucBia"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.DanhMuc"
-            android:exported="false" />
-        <activity
-            android:name=".test"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.DanhMucBia"
-            android:exported="false" />
-        <activity
             android:name=".Menu_navigation"
             android:exported="false" />
         <activity

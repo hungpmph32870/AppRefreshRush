@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
         <item
             android:id="@+id/trangchu"
             android:title="Trang Chủ"
@@ -13,26 +12,40 @@
             android:id="@+id/quanlydonhang"
             android:title="Quản Lý Đơn Hàng"
             android:icon="@drawable/shopping_bag"/>
-
         <item
             android:id="@+id/thongke"
             android:title="Xem Thống kê"
             android:icon="@drawable/chart"/>
-        <item
-            android:id="@+id/profile"
-            android:title="Profile"
-            android:icon="@drawable/person"/>
-        <item android:id="@+id/doimatkhau"
-            android:title="Đổi Mật Khẩu"
-            android:icon="@drawable/key"
-            />
-        <item
-            android:id="@+id/thongtinungdung"
-            android:icon="@drawable/outline"
-            android:title="Thông tin ứng dụng"/>
+        <group android:checkableBehavior="single">
+            <item android:title="Danh Mục">
+                <menu>
+                    <item
+                        android:id="@+id/douong"
+                        android:title="Nước giải khát"
+                        android:icon="@drawable/local_bar"/>
+                    <item
+                        android:id="@+id/trasua"
+                        android:title="Trà sữa"
+                        android:icon="@drawable/local_bar"/>
+                </menu>
+            </item>
+        </group>
+        <group android:checkableBehavior="single">
+            <item android:title="Người Dùng">
+                <menu>
+                    <item
+                        android:id="@+id/profile"
+                        android:title="Profile"
+                        android:icon="@drawable/person"/>
+                    <item android:id="@+id/doimatkhau"
+                        android:title="Đổi Mật Khẩu"
+                        android:icon="@drawable/key"
+                        />
+                </menu>
+            </item>
+        </group>
         <item
             android:id="@+id/logout"
             android:title="Đăng xuất"
             android:icon="@drawable/ogout"/>
-    </group>
 </menu>
