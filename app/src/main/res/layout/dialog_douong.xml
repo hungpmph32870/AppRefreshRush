@@ -8,20 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="20dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ed_iddouong"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Id đồ uống"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp">
 
         <com.google.android.material.textfield.TextInputEditText

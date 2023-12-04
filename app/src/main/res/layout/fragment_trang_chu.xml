@@ -82,20 +82,11 @@
                         android:src="@drawable/baseline_keyboard_arrow_right_24" />
                 </LinearLayout>
             </RelativeLayout>
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|bottom"
-                android:src="@drawable/add"
-                android:layout_marginTop="10dp"
-                android:layout_margin="10dp"
-                android:id="@+id/fltadd_trangchu"/>
-            <ListView
-                android:id="@+id/lv_displayhome_DoUongSale"
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="1000dp"
-                android:clipToPadding="false"
-                />
+                android:layout_height="500dp"
+                android:layout_marginTop="30dp"
+                android:id="@+id/rcvdouongsale"/>
 
         </LinearLayout>
 

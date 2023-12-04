@@ -4,17 +4,25 @@ public class DoUong {
     private int idDoUong, giaDoUong;
     private String tenDoUong, tinhTrang, diaChiQuan;
 
-    public DoUong() {
-    }
 
-    public DoUong(int idDoUong, int giaDoUong, String tenDoUong, String diaChiQuan, String tinhTrang) {
+    public DoUong(int idDoUong, String tenDoUong,int giaDoUong,String tinhTrang , String diaChiQuan ) {
         this.idDoUong = idDoUong;
-        this.giaDoUong = giaDoUong;
         this.tenDoUong = tenDoUong;
-        this.diaChiQuan = diaChiQuan;
+        this.giaDoUong = giaDoUong;
         this.tinhTrang = tinhTrang;
+        this.diaChiQuan = diaChiQuan;
+
+    }
+    public DoUong(String tenDoUong, int giaDoUong, String tinhTrang, String diaChiQuan) {
+        this.tenDoUong = tenDoUong;
+        this.giaDoUong = giaDoUong;
+        this.tinhTrang = tinhTrang;
+        this.diaChiQuan = diaChiQuan;
     }
 
+    public DoUong() {
+
+    }
 
 
     public String getDiaChiQuan() {

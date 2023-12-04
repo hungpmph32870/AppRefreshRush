@@ -33,15 +33,6 @@ public class DbHelper extends SQLiteOpenHelper {
                 " (2, 'BIA 333', 12000, 'Khong Sale', 'Cầu Giấy - Hà Nội')," +
                 " (3, 'Nuoc Dua', 10000, 'Sale', 'Cầu Giấy - Hà Nội')," +
                 " (4, 'Nuoc Tao', 10000, 'Sale', 'Cầu Giấy - Hà Nội')");
-        sqLiteDatabase.execSQL("CREATE TABLE DOUONGNEW (" +
-                "IDNEW INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                "TENDOUONGNEW TEXT NOT NULL, "+
-                "GIADOUONGNEW INTEGER NOT NULL, "+
-                "DIACHINEW TEXT NOT NULL)");
-        sqLiteDatabase.execSQL("INSERT INTO DOUONGNEW VALUES(1, 'COCA COLA', 13000, 'Mỹ Đình - Hà Nội')," +
-                " (2, 'PEPSI', 15000, 'Hà Đông - Hà Nội')," +
-                " (3, 'BÒ HÚC', 10000, 'Đình Thôn - Hà Nội')," +
-                " (4, 'NƯỚC CAM', 20000, 'Mỹ Đình - Hà Nội')");
     }
 
     @Override
@@ -49,7 +40,6 @@ public class DbHelper extends SQLiteOpenHelper {
         if (i!=i1){
             sqLiteDatabase.execSQL("DROP TABLE IF EXISTS NGUOIDUNG");
             sqLiteDatabase.execSQL("DROP TABLE IF EXISTS DOUONG");
-            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS DOUONGNEW");
             onCreate(sqLiteDatabase);
         }
     }

@@ -21,12 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.appdatdouong_refreshrush.Adapter.DoUongAdapter;
-import com.example.appdatdouong_refreshrush.Adapter.DoUongNewAdapter;
 import com.example.appdatdouong_refreshrush.Dao.DoUongDAO;
-import com.example.appdatdouong_refreshrush.Dao.DoUongNewDAO;
-import com.example.appdatdouong_refreshrush.Menu_navigation;
 import com.example.appdatdouong_refreshrush.Model.DoUong;
-import com.example.appdatdouong_refreshrush.Model.DoUongNew;
 import com.example.appdatdouong_refreshrush.Photo;
 import com.example.appdatdouong_refreshrush.PhotoViewPagerAdapter;
 import com.example.appdatdouong_refreshrush.R;
@@ -39,15 +35,17 @@ import me.relex.circleindicator.CircleIndicator;
 
 public class TrangChu extends Fragment {
 
-    private ListView lvDoUongNew;
-    ArrayList<DoUongNew> list;
-    DoUongNewDAO dao;
-    DoUongNewAdapter adapter;
-    DoUongNew item;
+
+    private RecyclerView rcvdouongsale;
+    private DoUongAdapter doUongAdapter;
+    private DoUongDAO doUongDAO;
+    private String userType;
+    private String maKh;
+
+
     Dialog dialog;
     EditText edid, edTenNew, edGiaNew, edDiaChiNew;
     Button btnsave, btncancel;
-    FloatingActionButton fltadd;
 
     private ViewPager viewPager;
     private CircleIndicator circleIndicator;
@@ -73,24 +71,23 @@ public class TrangChu extends Fragment {
         PhotoViewPagerAdapter photoViewPagerAdapter = new PhotoViewPagerAdapter(listPhoto);
         viewPager.setAdapter(photoViewPagerAdapter);
         circleIndicator.setViewPager(viewPager);
-        //list view do uong new
-        lvDoUongNew = view.findViewById(R.id.lv_displayhome_DoUongSale);
-        dao = new DoUongNewDAO(getContext());
-        fltadd = view.findViewById(R.id.fltadd_trangchu);
-        fltadd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDialog(getActivity(), 0);
-            }
-        });
-        lvDoUongNew.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                item = list.get(position);
-                openDialog(getActivity(), 1);
-                return false;
-            }
-        });
+
+        //recyclerview do uong sale
+        rcvdouongsale = view.findViewById(R.id.rcvdouongsale);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        rcvdouongsale.setLayoutManager(layoutManager);
+        doUongDAO = new DoUongDAO(getContext());
+        List<DoUong> saleDoUongList = doUongDAO.getSaleSanPhamList();
+        ArrayList<DoUong> arrayListSale = new ArrayList<>(saleDoUongList);
+
+        if (getContext() !=null){
+            doUongAdapter = new DoUongAdapter(getContext(), arrayListSale);
+            rcvdouongsale.setAdapter(doUongAdapter);
+        }
+
+
+
+
 
         handler.postDelayed(runnable, 2000);
 
@@ -109,100 +106,10 @@ public class TrangChu extends Fragment {
             public void onPageScrollStateChanged(int state) {
             }
         });
-        capNhatLv();
         return view;
     }
-    void capNhatLv() {
-        list = (ArrayList<DoUongNew>) dao.getAll();
-        adapter = new DoUongNewAdapter(getActivity(), this, list);
-        lvDoUongNew.setAdapter(adapter);
-    }
-    public void xoa(final String Id) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Delete");
-        builder.setMessage("Bạn có muốn xóa không?");
-        builder.setCancelable(true);
 
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dao.delete(Id);
-                capNhatLv();
-                dialog.cancel();
-            }
-        });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        AlertDialog alert = builder.create();
-        builder.show();
-    }
-    protected void openDialog(final Context context, final int type) {
-        dialog = new Dialog(context);
-        dialog.setContentView(R.layout.dialog_douongnew);
-        edid = dialog.findViewById(R.id.ed_iddouong_new);
-        edTenNew = dialog.findViewById(R.id.ed_tendouong_new);
-        edGiaNew = dialog.findViewById(R.id.ed_giadouong_new);
-        edDiaChiNew = dialog.findViewById(R.id.ed_diachi_new);
-        btncancel = dialog.findViewById(R.id.btnCancel_DUnew);
-        btnsave = dialog.findViewById(R.id.btnSave_DUnew);
 
-        edid.setEnabled(false);
-        if (type != 0) {
-            edid.setText(String.valueOf(item.getIdNew()));
-            edTenNew.setText(item.getTenNew());
-            edGiaNew.setText(String.valueOf(item.getGiaNew()));
-            edDiaChiNew.setText(item.getDiaChiNew());
-        }
-        btncancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-        btnsave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                item = new DoUongNew();
-                item.setTenNew(edTenNew.getText().toString());
-                item.setGiaNew(Integer.parseInt(edGiaNew.getText().toString()));
-                item.setDiaChiNew(edDiaChiNew.getText().toString());
-                if (validate() > 0) {
-                    if (type == 0) {
-                        if (dao.insert(item) > 0) {
-                            Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(context, "Thêm thất bại", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        item.setIdNew(Integer.parseInt(edid.getText().toString()));
-                        if (dao.update(item) > 0) {
-                            Toast.makeText(context, "Sửa thành công", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(context, "Sửa thất bại", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                    capNhatLv();
-                    dialog.dismiss();
-                }
-            }
-        });
-        dialog.show();
-    }
-
-    public int validate() {
-        int check = 1;
-        if (edTenNew.getText().length() == 0 || edDiaChiNew.getText().length() == 0) {
-            Toast.makeText(getContext(), "Bạn phải nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
-            check = -1;
-
-        }
-        return check;
-
-    }
     private List<Photo> getListPhoto() {
         List<Photo> list = new ArrayList<>();
         list.add(new Photo(R.drawable.bannera));

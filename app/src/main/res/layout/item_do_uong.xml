@@ -60,7 +60,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center">
-
+            <Button
+                android:gravity="center"
+                android:text="Update"
+                android:backgroundTint="#FF5722"
+                android:id="@+id/btnUpdateDoUong"
+                android:layout_width="90dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="100dp"
+                />
             <Button
                 android:gravity="center"
                 android:text="Xóa"
@@ -69,7 +78,7 @@
                 android:layout_width="90dp"
                 android:layout_height="42dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="150dp"
+
                 />
         </LinearLayout>
     </LinearLayout>
