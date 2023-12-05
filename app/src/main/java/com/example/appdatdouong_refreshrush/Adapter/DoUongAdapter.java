@@ -53,7 +53,7 @@ public class DoUongAdapter extends RecyclerView.Adapter<DoUongAdapter.ViewHolder
     public void onBindViewHolder(@NonNull DoUongAdapter.ViewHolder holder, int position) {
         DoUong obj = list.get(position);
         holder.txtten.setText("Tên: "+obj.getTenDoUong());
-        holder.txtgia.setText(String.valueOf("Giá: "+obj.getGiaDoUong()));
+        holder.txtgia.setText(String.valueOf("Giá: "+obj.getGiaDoUong()+" VNĐ"));
         holder.txttinhTrang.setText("Trạng Thái: "+obj.getTinhTrang());
         holder.txtdiaChi.setText("Địa chỉ quán: "+obj.getDiaChiQuan());
         holder.btndelete.setOnClickListener(new View.OnClickListener() {

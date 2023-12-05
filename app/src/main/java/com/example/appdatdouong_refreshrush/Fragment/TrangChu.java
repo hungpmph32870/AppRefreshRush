@@ -12,10 +12,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -27,6 +29,7 @@ import com.example.appdatdouong_refreshrush.Photo;
 import com.example.appdatdouong_refreshrush.PhotoViewPagerAdapter;
 import com.example.appdatdouong_refreshrush.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +49,7 @@ public class TrangChu extends Fragment {
     Dialog dialog;
     EditText edid, edTenNew, edGiaNew, edDiaChiNew;
     Button btnsave, btncancel;
+    ImageView btnxemthem;
 
     private ViewPager viewPager;
     private CircleIndicator circleIndicator;
@@ -66,11 +70,13 @@ public class TrangChu extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_trang_chu, container, false);
         viewPager = view.findViewById(R.id.view_page);
+        btnxemthem = view.findViewById(R.id.btn_trangchu_xemthem);
         circleIndicator = view.findViewById(R.id.circle_indicator);
         listPhoto = getListPhoto();
         PhotoViewPagerAdapter photoViewPagerAdapter = new PhotoViewPagerAdapter(listPhoto);
         viewPager.setAdapter(photoViewPagerAdapter);
         circleIndicator.setViewPager(viewPager);
+
 
         //recyclerview do uong sale
         rcvdouongsale = view.findViewById(R.id.rcvdouongsale);
@@ -84,10 +90,6 @@ public class TrangChu extends Fragment {
             doUongAdapter = new DoUongAdapter(getContext(), arrayListSale);
             rcvdouongsale.setAdapter(doUongAdapter);
         }
-
-
-
-
 
         handler.postDelayed(runnable, 2000);
 
@@ -106,6 +108,7 @@ public class TrangChu extends Fragment {
             public void onPageScrollStateChanged(int state) {
             }
         });
+        btnxemthem.setOnClickListener(this::onclick);
         return view;
     }
 
@@ -128,5 +131,17 @@ public class TrangChu extends Fragment {
     public void onResume() {
         super.onResume();
         viewPager.postDelayed(runnable, 1000);
+    }
+    public void onclick(View v){
+        int id= v.getId();
+        NavigationView navigationView = (NavigationView) getActivity().findViewById(R.id.nav);
+        switch (id){
+            case R.id.btn_trangchu_xemthem:
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frmNav, new QLDoUong());
+                transaction.addToBackStack(null);
+                transaction.commit();
+                navigationView.setCheckedItem(R.id.douong);
+        }
     }
 }

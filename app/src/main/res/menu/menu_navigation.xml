@@ -4,6 +4,10 @@
             android:id="@+id/trangchu"
             android:title="Trang Chủ"
             android:icon="@drawable/home"/>
+    <item
+        android:id="@+id/douong"
+        android:title="Nước giải khát"
+        android:icon="@drawable/local_bar"/>
         <item
             android:id="@+id/giohang"
             android:title="Giỏ Hàng"
@@ -16,20 +20,6 @@
             android:id="@+id/thongke"
             android:title="Xem Thống kê"
             android:icon="@drawable/chart"/>
-        <group android:checkableBehavior="single">
-            <item android:title="Danh Mục">
-                <menu>
-                    <item
-                        android:id="@+id/douong"
-                        android:title="Nước giải khát"
-                        android:icon="@drawable/local_bar"/>
-                    <item
-                        android:id="@+id/trasua"
-                        android:title="Trà sữa"
-                        android:icon="@drawable/local_bar"/>
-                </menu>
-            </item>
-        </group>
         <group android:checkableBehavior="single">
             <item android:title="Người Dùng">
                 <menu>
