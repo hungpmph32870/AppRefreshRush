@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +33,8 @@ public class QLDoUong extends Fragment {
     DoUongAdapter adapter;
     private ArrayList<DoUong> list = new ArrayList<>();
     FloatingActionButton fltadd;
+    EditText edsearch;
+    ArrayList<DoUong> tempList ;
 
 
     @Override
@@ -40,18 +44,50 @@ public class QLDoUong extends Fragment {
         rcvDoUong = view.findViewById(R.id.rcv_doUong);
         dao = new DoUongDAO(getActivity());
         fltadd = view.findViewById(R.id.fltadd_douong);
+        edsearch = view.findViewById(R.id.ed_search);
         list = dao.selectAll();
         LinearLayoutManager layoutManager =  new LinearLayoutManager(getActivity());
         rcvDoUong.setLayoutManager(layoutManager);
         adapter = new DoUongAdapter(getActivity(), list);
         rcvDoUong.setAdapter(adapter);
+
+        edsearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                list.clear();
+                for (DoUong obj : tempList){
+                    if (obj.getTenDoUong().contains(charSequence.toString())){
+                        list.add(obj);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
         fltadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 opendialogthem();
             }
         });
+        capNhat();
         return view;
+    }
+    public void capNhat(){
+        tempList = (ArrayList<DoUong>)dao.selectAll();
+        LinearLayoutManager layoutManager =  new LinearLayoutManager(getActivity());
+        rcvDoUong.setLayoutManager(layoutManager);
+        adapter = new DoUongAdapter(getActivity(), list);
+        rcvDoUong.setAdapter(adapter);
     }
     public  void  opendialogthem(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

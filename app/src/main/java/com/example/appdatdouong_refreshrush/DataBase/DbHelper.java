@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class DbHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "QLSP";
 
-    public DbHelper(Context context){super(context, DB_NAME, null, 10);}
+    public DbHelper(Context context){super(context, DB_NAME, null, 12);}
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {

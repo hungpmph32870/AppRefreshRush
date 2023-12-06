@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -42,13 +45,7 @@ public class TrangChu extends Fragment {
     private RecyclerView rcvdouongsale;
     private DoUongAdapter doUongAdapter;
     private DoUongDAO doUongDAO;
-    private String userType;
-    private String maKh;
 
-
-    Dialog dialog;
-    EditText edid, edTenNew, edGiaNew, edDiaChiNew;
-    Button btnsave, btncancel;
     ImageView btnxemthem;
 
     private ViewPager viewPager;
@@ -76,7 +73,6 @@ public class TrangChu extends Fragment {
         PhotoViewPagerAdapter photoViewPagerAdapter = new PhotoViewPagerAdapter(listPhoto);
         viewPager.setAdapter(photoViewPagerAdapter);
         circleIndicator.setViewPager(viewPager);
-
 
         //recyclerview do uong sale
         rcvdouongsale = view.findViewById(R.id.rcvdouongsale);
@@ -111,6 +107,8 @@ public class TrangChu extends Fragment {
         btnxemthem.setOnClickListener(this::onclick);
         return view;
     }
+
+
 
 
     private List<Photo> getListPhoto() {

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import com.example.appdatdouong_refreshrush.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity {
     NguoiDungDAO ndDAO;
@@ -53,6 +55,12 @@ public class Register extends AppCompatActivity {
             return;
         }if (ndDAO.isMaNvExists(id)){
             Toast.makeText(this, "ID này đã tồn tại", Toast.LENGTH_SHORT).show();
+            return;
+        }if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            Toast.makeText(this, "Email kh đúng định dạng", Toast.LENGTH_SHORT).show();
+            return;
+        }if (!Patterns.PHONE.matcher(sdt).matches() || sdt.length() != 10){
+            Toast.makeText(this, "Số điện thoại phải đủ 10 ký tự", Toast.LENGTH_SHORT).show();
             return;
         }
         NguoiDung newNguoiDung = new NguoiDung(id, hoTen, tenDN, email, sdt, matKhau);
